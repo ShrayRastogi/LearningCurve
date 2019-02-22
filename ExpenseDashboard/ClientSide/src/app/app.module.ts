@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
-import { LoginModule } from './modules/login/login.module';
-import { LoginComponent } from './modules/login/component/login.component';
+import { HomeModule } from './modules/home/home.module';
+import { HomeComponent } from './modules/home/component/home.component';
 
 @NgModule({
   declarations: [],
@@ -12,9 +12,9 @@ import { LoginComponent } from './modules/login/component/login.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    LoginModule
+    HomeModule
   ],
   providers: [],
-  bootstrap: [LoginComponent]
+  bootstrap: [HomeComponent]
 })
 export class AppModule {}
