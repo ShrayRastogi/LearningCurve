@@ -4,14 +4,7 @@ import { LoginService } from '../service/login.service';
 import { User } from 'src/app/models/login/User';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
-function passwordValidator(control: FormControl) {
-  if (control.value && control.value.toString().indexOf('@') < 0) {
-    return { requiredCharacters: true };
-  }
-
-  return null;
-}
+import { passwordValidator } from 'src/app/customValidators/password.validator';
 
 @Component({
   selector: 'app-login',
@@ -21,11 +14,13 @@ function passwordValidator(control: FormControl) {
 export class LoginComponent {
   private loginFacade: LoginFacade;
   user: User = new User();
+  private isValidUser = true;
 
   constructor(
     public dialogRef: MatDialogRef<LoginComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    this.loginFacade = new LoginFacade();
     this.user.username = new FormControl('', [
       Validators.required,
       Validators.minLength(6)
@@ -54,5 +49,9 @@ export class LoginComponent {
       : this.user.password.hasError('requiredCharacters')
       ? 'Password must contain at least 1 special character'
       : '';
+  }
+
+  async userLogin() {
+    this.isValidUser = await this.loginFacade.verifyLogin(this.user);
   }
 }

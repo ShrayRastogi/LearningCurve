@@ -29,7 +29,11 @@
     class="login-button"
     color="primary"
     [disabled]="user.username.invalid || user.password.invalid"
+    (click)="userLogin()"
   >
     Login
   </button>
+  <mat-error style="margin-top: 20px;" *ngIf="!isValidUser"
+    >Incorrect username or password</mat-error
+  >
 </div>
