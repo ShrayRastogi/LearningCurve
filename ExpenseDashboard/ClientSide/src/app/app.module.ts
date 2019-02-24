@@ -32,6 +32,6 @@ import { setAppInjector } from './service-injector.helper';
 })
 export class AppModule {
   constructor(private injector: Injector) {
-    setAppInjector(injector);
+    setAppInjector(this.injector);
   }
 }
