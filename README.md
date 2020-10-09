@@ -4,23 +4,23 @@
 
 - **Front End**
 
-  - Angular 6
+  - Angular
   - TypeScript
   - Material UI
   - Karma & Protactor
 
 - **Back End**
 
-  - .Net Core 2.0
-  - C#
+  - .Net Core / Spring Boot MVC
+  - C# / Java
   - XUnit
-  - SQL Server 2018
+  - SQL Server / PostGres / Firebase
 
 - **Infrastructure**
 
   - Jenkins CI
   - GitHub
-  - PCF
+  - AWS / Azure
   - VSCode Setup (Environment & Debugging)
 
 - **Best Practices**
